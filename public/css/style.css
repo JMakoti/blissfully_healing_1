@@ -121,9 +121,9 @@ hero Section */
   height: 100vh;
   overflow: hidden;
   position: relative;
+  padding-top:60px ;
 }
 
-/* ensure content adjusts and stacks on narrow screens */
 @media (max-width: 768px) {
   .hero-section {
     height: auto;
@@ -202,6 +202,7 @@ hero Section */
   width: 100%;
   z-index: 1;
   animation: scrollDown 90s steps(6) infinite;
+  /* animation: scrollDown 90s linear infinite; */
 }
 
 .carousel-vertical img {
@@ -221,8 +222,8 @@ hero Section */
 
 .pellet {
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 20px;
+  height: 20px;
   background: #d4af37;
   border-radius: 50%;
   opacity: 0.7;
@@ -357,14 +358,20 @@ hero Section */
 }
 
 .letter-content h1 {
-  /* font-size: 4rem;
-  margin-bottom: 30px;
-  color: var(--color-white); */
-  font-size: 4rem;
-  margin-bottom: 30px;
+  font-size: 3rem;
+  /* margin-bottom: 20px; */
   color: white;
   text-shadow: 0 0 15px rgba(255, 220, 120, 0.6);
   font-family: "Baskervville", serif;
+}
+
+.lazy {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.lazy.loaded {
+  opacity: 1;
 }
 
 .scroll-image {
@@ -407,8 +414,8 @@ hero Section */
 
 .old-paper.active {
   width: 100%;
-  max-width: 900px;
-  height: 500px;
+  /* max-width: 900px; */
+  height: 1900px;
 }
 
 .old-paper img {
@@ -433,18 +440,50 @@ hero Section */
 .paper-text p {
   letter-spacing: 2px;
   font-family: "Great Vibes", cursive !important;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .old-paper.active .paper-text {
   opacity: 1;
 }
 
+/* .temple-list {
+  list-style: decimal;
+  padding-left: 20px;
+} */
+
+.temple-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.temple-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.temple-item p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.temple-item p b {
+  letter-spacing: 2px;
+  font-family: "Great Vibes", cursive !important;
+  font-size: 1.5rem;
+}
+
+
 .light-mask {
   position: absolute;
   inset: 0;
   background: radial-gradient(
-    circle at 600px 75%,
+    circle at 400px 75%,
     rgba(255, 255, 200, 0.4) 0%,
     rgba(255, 255, 200, 0.2) 20%,
     rgba(0, 0, 0, 0.95) 65%

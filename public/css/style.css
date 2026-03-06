@@ -327,19 +327,19 @@ hero Section */
 
 /* The Letter */
 .the_letter_section {
-  background: url("../images/black_satin_bg.jpg");
+  background: url("https://plus.unsplash.com/premium_photo-1672682781710-e814d70c26f4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmxhY2slMjBzYXRpbnxlbnwwfHwwfHx8MA%3D%3D");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
   overflow: hidden;
-  align-items: center;
-  display: flex;
-  justify-content: center;
+  /* align-items: center; */
+  /* display: flex; */
+  /* justify-content: center; */
 }
 
 /* LAMP IN LETTER SECTION */
-.lamp-container {
+/* .lamp-container {
   position: absolute;
   left: 0;
   z-index: 5;
@@ -348,11 +348,11 @@ hero Section */
 .lamp-container img {
   height: 400px;
   display: block;
-}
+} */
 
 .letter-content {
   text-align: center;
-  margin-left: 220px;
+  /* margin-left: 220px; */
   position: relative;
   z-index: 3;
 }
@@ -363,15 +363,6 @@ hero Section */
   color: white;
   text-shadow: 0 0 15px rgba(255, 220, 120, 0.6);
   font-family: "Baskervville", serif;
-}
-
-.lazy {
-  opacity: 0;
-  transition: opacity 0.5s;
-}
-
-.lazy.loaded {
-  opacity: 1;
 }
 
 .scroll-image {
@@ -415,7 +406,7 @@ hero Section */
 .old-paper.active {
   width: 100%;
   /* max-width: 900px; */
-  height: 1900px;
+  height: 2400px;
 }
 
 .old-paper img {
@@ -460,9 +451,9 @@ hero Section */
 }
 
 .temple-item img {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
+  width: 200px;
+  height: 140px;
+  object-fit: contain;
   border-radius: 6px;
   flex-shrink: 0;
 }
@@ -472,13 +463,20 @@ hero Section */
   line-height: 1.6;
 }
 
-.temple-item p b {
+.paper-text p b {
   letter-spacing: 2px;
   font-family: "Great Vibes", cursive !important;
   font-size: 1.5rem;
 }
 
 
+.temple-item p b {
+  letter-spacing: 2px;
+  font-family: "Great Vibes", cursive !important;
+  font-size: 1.5rem;
+}
+
+/* 
 .light-mask {
   position: absolute;
   inset: 0;
@@ -490,7 +488,7 @@ hero Section */
   );
   pointer-events: none;
   z-index: 2;
-}
+} */
 
 /* About the Founder */
 .about {

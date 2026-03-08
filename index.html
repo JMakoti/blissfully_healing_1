@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Blissfully Healing Website"/>
+    <meta name="description" content="Blissfully Healing Website" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -13,6 +13,7 @@
     <title>Blissfully Healing</title>
     <link rel="stylesheet" href="assets/fontawesome/css/all.min.css" />
     <link rel="stylesheet" href="public/css/style.css" />
+    <!-- <link rel="stylesheet" href="public/css/custom.css"> -->
     <link
       href="https://fonts.googleapis.com/css2?family=Baskervville&family=Great+Vibes&display=swap"
       rel="stylesheet"
@@ -70,10 +71,8 @@
     <!-- Hero Section -->
     <main>
       <section class="hero-section container-fluid">
-        <div class="row h-100">
-          <div
-            class="col-lg-6 d-flex align-items-center ps-lg-5 hero-left position-relative"
-          >
+        <div class="hero-content">
+          <div class="col-lg-6 ps-lg-5 hero-left">
             <div class="pellet p1"></div>
             <div class="pellet p2"></div>
             <div class="pellet p3"></div>
@@ -133,11 +132,6 @@
 
       <!-- The Letter -->
       <section class="the_letter_section">
-        <!-- Lamp -->
-        <!-- <div class="lamp-container">
-        <img src="public/images/dark_lamp.webp" loading="lazy" alt="Lamp" />
-      </div> -->
-
         <div class="letter-content">
           <h1 class="pt-5">
             A Love Letter to My Beloved<br />
@@ -155,8 +149,8 @@
             <br />
 
             <button class="read-btn" id="readBtn" aria-label="Read The Letter">
-              Read The Letter</button
-            >,
+              Read The Letter
+            </button>
           </div>
 
           <div class="old-paper" id="oldPaper">
@@ -167,42 +161,27 @@
             />
             <div class="paper-text">
               <p>
-                Welcome to the Blissfully Healing sanctuary a private estate for
-                the soul, meticulously cultivated for those ready to return home
-                to themselves. I invite you to step within exactly as you are.
-                You are not a project to be managed, nor a problem to be solved.
-                You are simply disconnected and this marks the beginning of your
+                Welcome to Blissfully Healing, a sanctuary crafted for those
+                ready to reconnect with themselves. Step in as you are—there’s
+                no need to fix or manage anything; this is the beginning of your
                 restoration.
               </p>
               <p>
-                You have arrived at the threshold where the search for safety
-                ends. For too long, you have lived as "The Alchemist" exhausting
-                your brilliance to "fix" a life that was never broken. If you
-                are here, your soul is ready to lay down the tools of effort and
-                return to the frequency of Resonance. Healing is not a task you
-                perform; it is a frequency you inhabit. Like the rare emerald
-                and ancient stone, you are shifting from the fatigue of "doing"
-                into the effortless power of Beingness.
+                Here, your search for safety ends. You’ve spent too long
+                striving to "fix" a life that was never broken. Healing isn’t a
+                task—it’s a frequency. Like rare stones, you shift from effort
+                into the natural power of simply being.
               </p>
-
               <p>
-                Your Majesty is not a home to be built; it is a natural law as
-                certain as the geometry of the heart. You do not earn your
-                sovereignty through the shadows of survival. Like the Tree of
-                Life, you do not "try" to grow—you simply exist in the right
-                conditions, and expansion becomes inevitable. Blissfully Healing
-                is a safe harbor for this foundational transformation. We honor
-                your shadows—the petrified wood of your past—not as flaws, but
-                as the grounding weight that allows your spirit to rise. Here,
-                we move away from complex effort toward Fundamental Truth,
-                embracing the sustained bliss of a heart in its natural state of
-                sovereignty.
+                Your sovereignty is innate, like the geometry of the heart.
+                Growth and expansion happen when conditions are right, not
+                through forced effort. Blissfully Healing honors your past
+                shadows as grounding forces that allow your spirit to rise,
+                embracing the ease of true self-sovereignty.
               </p>
-
               <p>
-                To support your return, I have curated six distinct
-                Temples—bespoke containers designed to meet you at every stage
-                of your evolution:
+                To guide this journey, six unique Temples have been curated—each
+                a sacred container supporting your evolution at every stage:
               </p>
               <p><b>The Temples within the Sanctuary</b></p>
 
@@ -321,11 +300,6 @@
               class="frame"
               alt="Royal Frame"
             />
-            <!-- <img
-            src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1000"
-            class="photo"
-            alt=""
-          /> -->
           </div>
 
           <div class="img-bottom">
@@ -334,11 +308,6 @@
               class="frame"
               alt="Royal Frame"
             />
-            <!-- <img
-            src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1000"
-            class="photo"
-            alt=""
-          /> -->
           </div>
 
           <div class="story">
@@ -360,55 +329,117 @@
           </div>
         </div>
       </section>
+
+      <!-- Services Section -->
+      <section class="service-section">
+        <div class="container">
+          <div class="service-intro">
+            <h2 >Our Services</h2>
+            <p>What you get from blissfully healing</p>
+          </div>
+          <div class="blissfull-service-cards">
+            <div
+              class="blissfull-service-card js-zoom-card"
+              id="serviceCard1"
+              data-href="www/courses.html"
+            >
+              <div class="card-bg card1">
+                <div class="pink-overlay" aria-hidden="true"></div>
+
+                <div class="card-content">
+                  <h2 class="card-title">Courses</h2>
+                  <p class="card-description">
+                    Walk through the valley of kings. Exclusive night access,
+                    augmented reality hieroglyphs & sacred ritual tour.
+                  </p>
+                  <button
+                    aria-label="service-learn-more-card"
+                    class="learn-more js-explore-btn"
+                  >
+                    <span> LEARN MORE </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="blissfull-service-card js-zoom-card"
+              id="serviceCard2"
+              data-href="www/support-groups.html"
+            >
+              <div class="card-bg card2">
+                <div class="pink-overlay" aria-hidden="true"></div>
+
+                <div class="card-content">
+                  <h2 class="card-title">
+                    Support <br />
+                    Groups
+                  </h2>
+                  <p class="card-description">
+                    Walk through the valley of kings. Exclusive night access,
+                    augmented reality hieroglyphs & sacred ritual tour.
+                  </p>
+                  <button
+                    aria-label="service-learn-more-card"
+                    class="learn-more js-explore-btn"
+                  >
+                    <span> LEARN MORE </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="blissfull-service-card js-zoom-card"
+              id="serviceCard3"
+              data-href="www/retreats.html"
+            >
+              <div class="card-bg card3">
+                <div class="pink-overlay" aria-hidden="true"></div>
+
+                <div class="card-content">
+                  <h2 class="card-title">Retreats</h2>
+                  <p class="card-description">
+                    Walk through the valley of kings. Exclusive night access,
+                    augmented reality hieroglyphs & sacred ritual tour.
+                  </p>
+                  <button
+                    aria-label="service-learn-more-card"
+                    class="learn-more js-explore-btn"
+                  >
+                    <span> LEARN MORE </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="blissfull-service-card js-zoom-card"
+              id="serviceCard4"
+              data-href="www/ebooks-shop.html"
+            >
+              <div class="card-bg card4">
+                <div class="pink-overlay" aria-hidden="true"></div>
+
+                <div class="card-content">
+                  <h2 class="card-title">E-Books / Shop</h2>
+                  <p class="card-description">
+                    Walk through the valley of kings. Exclusive night access,
+                    augmented reality hieroglyphs & sacred ritual tour.
+                  </p>
+                  <button
+                    aria-label="service-learn-more-card"
+                    class="learn-more js-explore-btn"
+                  >
+                    <span> LEARN MORE </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- Js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script>
-      document.querySelectorAll("img").forEach((img) => {
-        img.loading = "lazy";
-      });
-
-      window.addEventListener("scroll", function () {
-        const navbar = document.querySelector(".custom-navbar");
-        navbar.classList.toggle("scrolled", window.scrollY > 50);
-      });
-
-      // The Letter
-      // Animation when section enters viewport
-      const scrollImage = document.getElementById("scroll");
-      const readBtn = document.getElementById("readBtn");
-      const oldPaper = document.getElementById("oldPaper");
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              scrollImage.classList.add("fall");
-
-              setTimeout(() => {
-                readBtn.classList.add("show");
-              }, 1200);
-            }
-          });
-        },
-        { threshold: 0.5 },
-      );
-
-      observer.observe(document.querySelector(".the_letter_section"));
-
-      // CLICK ACTION
-      readBtn.addEventListener("click", () => {
-        // Hide scroll completely
-        scrollImage.style.display = "none";
-
-        // Expand old paper
-        oldPaper.classList.add("active");
-
-        // Hide button after click
-        readBtn.style.display = "none";
-      });
-    </script>
+    <script src="public/js/main.js"></script>
   </body>
 </html>

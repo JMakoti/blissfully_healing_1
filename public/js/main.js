@@ -229,8 +229,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // button element by its ID
-document.getElementById("blogReadMoreBtn").onclick = function () {
-  //redirect to blogs.html
-  window.location.href = "../../www/blogs.html";
+// document.getElementById("blogReadMoreBtn").onclick = function () {
+//   //redirect to blogs.html
+//   window.location.href = "../../www/blogs.html";
   
-}
+// }
+
+document.querySelectorAll(".blogReadMoreBtn").forEach(function(btn) {
+  btn.addEventListener("click", function () {
+    const url = this.getAttribute("data-href");
+    window.location.href = url;
+  });
+});

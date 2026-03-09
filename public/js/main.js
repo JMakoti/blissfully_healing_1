@@ -226,3 +226,11 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initialize - show first card
   showCard(0);
 });
+
+
+// button element by its ID
+document.getElementById("blogReadMoreBtn").onclick = function () {
+  //redirect to blogs.html
+  window.location.href = "../../www/blogs.html";
+  
+}

@@ -460,11 +460,12 @@ hero Section */
 }
 
 .temple-item img {
-  width: 180px;
-  max-width: 40%;
+  width: 100px;
+  /* max-width: 40%; */
   height: 100px;
-  object-fit: contain;
-  border-radius: 6px;
+  object-fit: cover;
+  /* border-radius: 6px; */
+  border-radius: 50%;
   flex-shrink: 0;
 }
 
@@ -732,10 +733,9 @@ hero Section */
   margin-top: 20px;
   font-weight: 900;
 }
-.service-section .service-intro{
+.service-section .service-intro {
   font-size: 2rem;
 }
-
 
 .blissfull-service-cards {
   display: flex;
@@ -965,5 +965,252 @@ hero Section */
   }
   .learn-more {
     padding: 0.6rem 1.2rem;
+  }
+}
+
+/* Journal / Blog Section */
+.journal-blog-section {
+  width: 100%;
+  padding: 5rem 0;
+  overflow: hidden;
+}
+
+.journal-blog-section .journal-cards {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.journal-blog-section .journal-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  /* height: 100vh; */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* background: linear-gradient(0deg, rgba(30, 10, 10, 0.3) 0%, transparent 70%); */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 4rem 2rem;
+  isolation: isolate;
+  /* opacity: 0; */
+  visibility: hidden;
+  transition:
+    opacity 0.5s ease,
+    visibility 0.5s ease;
+  pointer-events: none;
+}
+
+.journal-blog-section .journal-card.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+.journal-blog-section .journal-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(30, 10, 10, 0.4) 0%, transparent 70%);
+  z-index: -1;
+}
+
+.journal-blog-section .journal-card.card1 {
+  background-image: url("https://images.pexels.com/photos/18934680/pexels-photo-18934680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+}
+
+.journal-blog-section .journal-card.card2 {
+  background-image: url("https://images.pexels.com/photos/2380794/pexels-photo-2380794.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+}
+
+.journal-blog-section .journal-card.card3 {
+  background-image: url("https://images.pexels.com/photos/1579253/pexels-photo-1579253.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+}
+
+.journal-blog-section .journal-content {
+  max-width: 800px;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+  backdrop-filter: blur(3px);
+  padding: 1.5rem 2rem;
+  color: #fff6f0;
+  font-weight: 400;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  width: 90%;
+  animation: fadeInUp 1s ease;
+}
+
+.journal-blog-section .journal-content h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+.journal-blog-section .journal-content p {
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  line-height: 1.5;
+}
+
+.btn-grp {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 900px;
+  animation: fadeInUp 1s ease 0.2s both;
+}
+
+/* .btn-grp button {
+  border: 2px solid transparent;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 40px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.9);
+  color: #1a1a1a;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-grp button:hover {
+  background: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+} */
+
+.btn-grp .nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.btn-grp .nav-btn button {
+  border: 2px solid transparent;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.8rem 1.2rem;
+  border-radius: 40px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.9);
+  color: #1a1a1a;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-width: 48px;
+}
+
+.btn-grp .nav-btn button:hover:not(:disabled) {
+  background: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.btn-grp .nav-btn button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.btn-grp .action-btn {
+  border: 2px solid transparent;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 40px;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.95);
+  color: #1a1a1a;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-grp .action-btn:hover {
+  background: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.btn-grp i {
+  font-size: 1.1rem;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .journal-blog-section .journal-card {
+    padding: 2rem 1rem;
+  }
+
+  .journal-blog-section .journal-content {
+    width: 100%;
+    padding: 1.2rem;
+  }
+
+  .btn-grp {
+    gap: 0.8rem;
+  }
+
+  .btn-grp .nav-btn button,
+  .btn-grp .action-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .btn-grp .nav-btn {
+    gap: 0.4rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .btn-grp {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-grp .nav-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .btn-grp .nav-btn button {
+    flex: 1;
+    max-width: 120px;
+  }
+
+  .btn-grp .action-btn {
+    width: 100%;
+    justify-content: center;
   }
 }

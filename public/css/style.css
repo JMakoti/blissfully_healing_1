@@ -503,6 +503,24 @@ hero Section */
 }
 
 @media (max-width: 992px) {
+  .the_letter_section {
+    padding: 80px 16px;
+  }
+
+  .letter-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .scroll-image {
+    width: 320px;
+    max-width: 70%;
+  }
+
+  .old-paper {
+    width: 90%;
+    max-width: 680px;
+  }
+
   .old-paper.active {
     width: 100%;
     max-width: 100%;
@@ -533,19 +551,20 @@ hero Section */
   }
 
   .temple-item {
-    gap: 3px;
-    margin-bottom: 2px;
+    gap: 6px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
   }
 
   .temple-item img {
-    width: 120px;
+    width: 100px;
     max-width: 30%;
     height: 60px;
   }
 
   .temple-item p {
     line-height: 1.3;
-    flex: 1;
+    flex: 1 1 auto;
   }
 
   .paper-text p b {
@@ -559,6 +578,66 @@ hero Section */
 }
 
 @media (max-width: 768px) {
+  .the_letter_section {
+    padding: 60px 16px;
+  }
+
+  .letter-content h1 {
+    font-size: 2rem;
+  }
+
+  .scroll-image {
+    width: 280px;
+    max-width: 80%;
+  }
+
+  .old-paper {
+    width: 95%;
+    max-width: 640px;
+  }
+
+  .paper-text {
+    top: 42%;
+    width: 90%;
+  }
+
+  .paper-text p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .the_letter_section {
+    padding: 40px 12px;
+  }
+
+  .letter-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .scroll-image {
+    width: 240px;
+    max-width: 90%;
+  }
+
+  .letter-content {
+    padding: 0 10px;
+  }
+
+  .old-paper {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .paper-text {
+    top: 45%;
+    width: 95%;
+  }
+
+  .paper-text p {
+    font-size: 0.95rem;
+  }
+
   .temple-item {
     flex-direction: column;
     align-items: center;
@@ -566,25 +645,34 @@ hero Section */
   }
 
   .temple-item img {
-    width: 80%;
-    height: auto;
+    width: 80px;
+    height: 80px;
+  }
+
+  .temple-item p {
+    margin-top: 8px;
   }
 }
+
 
 @media (max-width: 480px) {
   .old-paper.active {
     width: 100%;
     max-width: 100%;
-    height: 2400px;
-
+    height: 1470px;
     /* height: auto; */
   }
 
   .old-paper img {
     width: 100%;
-    height: 2400px;
+    height: 1470px;
+    max-height: 100%;
     /* height: auto; */
     object-fit: cover;
+  }
+
+  .temple-item img {
+    display: none ;
   }
 }
 

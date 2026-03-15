@@ -39,7 +39,7 @@ window.addEventListener("scroll", () => {
   } else if (currentScrollY < lastScrollY) {
     // Scrolling UP
     scrollImage.classList.add("fall");
-    oldPaper.classList.remove("active");
+    // oldPaper.classList.remove("active");
     readBtn.classList.add("show");
     hasFallen = true;
   }

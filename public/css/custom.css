@@ -6,6 +6,12 @@
   box-sizing: border-box;
   font-family: "Baskervville", serif;
 }
+:root {
+  /* Deep Emerald (Stability) (#00381F), Muted Gold (Alchemy/Impact) (#D2B450), and Soft Pearl/Pink Diamond (The Softness of the Soul).(E7ACCF) */
+  --color-muted-gold: #d2b450;
+  --color-deep-emerald: #00381f;
+  --color-soft-pink: #e7accf;
+}
 
 body {
   background: #faf9f6;
@@ -34,7 +40,7 @@ html {
 
 .section-title {
   font-family: "Baskervville", serif;
-  color: #5d3a5a;
+  color: var(--color-soft-pink);
   font-size: 3rem;
   margin-top: 20px;
 }

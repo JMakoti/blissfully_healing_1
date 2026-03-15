@@ -197,34 +197,51 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Function to go to next card
+  // Function to go to next card (loops to start)
   function nextCard() {
-    if (currentIndex < cards.length - 1) {
-      currentIndex++;
-      showCard(currentIndex);
-    }
+    currentIndex = (currentIndex + 1) % cards.length;
+    showCard(currentIndex);
   }
 
-  // Function to go to previous card
+  // Function to go to previous card (loops to end)
   function prevCard() {
-    if (currentIndex > 0) {
-      currentIndex--;
-      showCard(currentIndex);
+    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+    showCard(currentIndex);
+  }
+
+  // Auto-advance timer
+  let autoAdvanceTimer = null;
+  function startAutoAdvance() {
+    // Advance every 60 seconds
+    autoAdvanceTimer = setInterval(nextCard, 60000);
+  }
+
+  function resetAutoAdvance() {
+    if (autoAdvanceTimer) {
+      clearInterval(autoAdvanceTimer);
     }
+    startAutoAdvance();
   }
 
   // Add click event listeners to all next buttons
   nextButtons.forEach((button) => {
-    button.addEventListener("click", nextCard);
+    button.addEventListener("click", () => {
+      nextCard();
+      resetAutoAdvance();
+    });
   });
 
   // Add click event listeners to all prev buttons
   prevButtons.forEach((button) => {
-    button.addEventListener("click", prevCard);
+    button.addEventListener("click", () => {
+      prevCard();
+      resetAutoAdvance();
+    });
   });
 
-  // Initialize - show first card
+  // Initialize - show first card and start auto-advance
   showCard(0);
+  startAutoAdvance();
 });
 
 

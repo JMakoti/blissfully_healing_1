@@ -12,8 +12,10 @@ html {
 }
 
 :root {
-  --color-gold: #d4af37;
-  --color-gold-light: #f4e5c2;
+  --color-muted-gold: #d2b450;
+  --color-deep-emerald: #00381f;
+  --color-soft-pink: #e7accf;
+
   --color-emerald: #50c878;
   --color-emerald-dark: #2d5f4c;
   --color-rose: #e37383;
@@ -72,16 +74,16 @@ body {
 }
 .nav-link.active,
 .nav-link:hover {
-  color: var(--color-gold) !important;
+  color: var(--color-muted-gold) !important;
 }
 
 .nav-link:hover {
-  color: var(--color-gold) !important;
+  color: var(--color-muted-gold) !important;
 }
 
 .nav-btn {
   padding: 10px 26px;
-  background-color: var(--color-gold);
+  background-color: var(--color-muted-gold);
   color: var(--color-emerald-dark);
   border: none;
   border-radius: 50px;
@@ -142,7 +144,7 @@ hero Section */
 
 .hero-left {
   background: #0d0d0d;
-  color: var(--color-gold);
+  color: var(--color-muted-gold);
   position: relative;
   z-index: 3;
   display: flex;
@@ -170,42 +172,61 @@ hero Section */
   position: relative;
 }
 
+/* Hide the fixed background image to allow the vertical carousel to fill the full hero area. */
 .fixed-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  z-index: 0;
-  overflow: hidden;
-}
-.fixed-img img {
-  width: 100%;
-  height: 100vh;
-  object-fit: cover;
+  display: none;
 }
 
 .carousel-vertical {
   position: absolute;
   top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
   z-index: 1;
-  animation: scrollDown 90s steps(6) infinite;
-  /* animation: scrollDown 90s linear infinite; */
+  overflow: hidden;
 }
 
 .carousel-vertical img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  animation: slide 150s linear infinite;
 }
 
-@keyframes scrollDown {
-  0% {
-    transform: translateY(0);
+.carousel-vertical img:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.carousel-vertical img:nth-child(2) {
+  animation-delay: -30s;
+}
+
+.carousel-vertical img:nth-child(3) {
+  animation-delay: -60s;
+}
+
+.carousel-vertical img:nth-child(4) {
+  animation-delay: -90s;
+}
+
+.carousel-vertical img:nth-child(5) {
+  animation-delay: -120s;
+}
+
+@keyframes slide {
+  0%,
+  19.99% {
+    opacity: 1;
   }
+  20%,
   100% {
-    transform: translateY(-500%);
+    opacity: 0;
   }
 }
 
@@ -280,10 +301,6 @@ hero Section */
     margin-right: 0;
   }
 
-  .carousel-vertical img {
-    height: 50vh;
-  }
-
   .hero-section {
     height: auto;
   }
@@ -311,8 +328,7 @@ hero Section */
     margin-left: 0;
     font-size: 1rem;
   }
-  .fixed-img,
-  .carousel-vertical {
+  .fixed-img {
     height: 40vh;
   }
 }
@@ -329,7 +345,7 @@ hero Section */
 
   .hero-left {
     background: #0d0d0d;
-    color: var(--color-gold);
+    color: var(--color-muted-gold);
     position: relative;
     z-index: 3;
     display: flex;
@@ -343,8 +359,7 @@ hero Section */
     font-size: 0.9rem;
   }
   .fixed-img,
-  .fixed-img img,
-  .carousel-vertical img {
+  .fixed-img img {
     height: 45vh;
   }
 }
@@ -773,6 +788,7 @@ hero Section */
   background-repeat: no-repeat;
   isolation: isolate;
 }
+
 .blissfull-service-card .card-bg.card1 {
   background-image: url("https://images.pexels.com/photos/18934680/pexels-photo-18934680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
 }
@@ -784,6 +800,22 @@ hero Section */
 }
 .blissfull-service-card .card-bg.card4 {
   background-image: url("https://images.unsplash.com/photo-1769185029328-c5862f4aa7d2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fEFuY2llbnQlMjBlZ3lwdGlhbiUyMGVkdWNhdGlvbnxlbnwwfHwwfHx8MA%3D%3D");
+}
+
+.blissfull-service-card .coming-soon-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #ff4da6;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 6;
 }
 
 /* PINK OVERLAY – with subtle grunge */
@@ -1213,4 +1245,27 @@ hero Section */
     width: 100%;
     justify-content: center;
   }
+}
+
+/* Section blog Title */
+.section-badge {
+  display: inline-block;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-family: "Baskervville", serif;
+  font-weight: bolder;
+}
+
+.section-title {
+  font-family: "Baskervville", serif;
+  color: #5d3a5a;
+  font-size: 3rem;
+  margin-top: 20px;
+}
+
+.section-title span {
+  color: #9b2c4f;
 }

@@ -1,3 +1,16 @@
+//preloader
+window.addEventListener("load", function () {
+  const preloader = document.getElementById("preloader");
+
+  if (!preloader) return;
+
+  setTimeout(() => {
+    preloader.style.opacity = "0";
+    preloader.style.visibility = "hidden";
+  }, 2000); 
+});
+
+//image lazy loading
 document.querySelectorAll("img").forEach((img) => {
   img.loading = "lazy";
 });
@@ -13,76 +26,97 @@ const scrollImage = document.getElementById("scroll");
 const readBtn = document.getElementById("readBtn");
 const oldPaper = document.getElementById("oldPaper");
 const theLetterSection = document.querySelector(".the_letter_section");
+const enterSanctuary = document.getElementById("enterSanctuary");
 
-let lastScrollY = window.scrollY;
+// let lastScrollY = window.scrollY;
 let hasFallen = false;
 let isInSection = false;
 
+if (enterSanctuary) {
+  enterSanctuary.addEventListener("click", function (event) {
+    if (enterSanctuary.tagName.toLowerCase() === "button") {
+      event.preventDefault();
+      const target =
+        enterSanctuary.dataset.href || enterSanctuary.getAttribute("href");
+      if (target) {
+        window.location.href = target;
+      }
+    }
+  });
+}
+
 // Check scroll direction
 window.addEventListener("scroll", () => {
-  const currentScrollY = window.scrollY;
+  if (!theLetterSection || !scrollImage || !readBtn) return;
+
   const sectionRect = theLetterSection.getBoundingClientRect();
   const isSectionVisible =
     sectionRect.top < window.innerHeight && sectionRect.bottom > 0;
 
-  // Determine scroll direction
-  if (currentScrollY > lastScrollY) {
-    // Scrolling DOWN
-    if (isSectionVisible && !hasFallen) {
-      // Only trigger fall animation if not already fallen
-      scrollImage.classList.add("fall");
-
-      setTimeout(() => {
-        readBtn.classList.add("show");
-      }, 1200);
-    }
-  } else if (currentScrollY < lastScrollY) {
-    // Scrolling UP
-    scrollImage.classList.add("fall");
-    // oldPaper.classList.remove("active");
-    readBtn.classList.add("show");
+  if (isSectionVisible && !hasFallen) {
     hasFallen = true;
-  }
-
-  lastScrollY = currentScrollY;
-});
-
-// CLICK ACTION
-readBtn.addEventListener("click", () => {
-  // Hide scroll completely
-  scrollImage.style.display = "none";
-  scrollImage.classList.remove("fall");
-
-  // Expand old paper
-  oldPaper.classList.add("active");
-
-  // Hide button after click
-  readBtn.style.display = "none";
-
-  // Mark as fallen to prevent re-animation
-  hasFallen = true;
-});
-
-// Optional: Click on scroll image to trigger the letter
-scrollImage.addEventListener("click", () => {
-  if (!hasFallen) {
+    // Only trigger fall animation if not already fallen
     scrollImage.classList.add("fall");
-
-    setTimeout(() => {
-      scrollImage.style.display = "none";
-      oldPaper.classList.add("active");
-      readBtn.style.display = "none";
-      hasFallen = true;
-    }, 1500);
 
     setTimeout(() => {
       readBtn.classList.add("show");
     }, 1200);
   }
+  // } else if (currentScrollY < lastScrollY) {
+  //   // Scrolling UP
+  //   scrollImage.classList.add("fall");
+  //   // oldPaper.classList.remove("active");
+  //   readBtn.classList.add("show");
+  //   hasFallen = true;
+  // }
+
+  // lastScrollY = currentScrollY;
 });
+
+// CLICK ACTION
+if (readBtn) {
+  readBtn.addEventListener("click", () => {
+    if (scrollImage) {
+      scrollImage.style.display = "none";
+      scrollImage.classList.remove("fall");
+    }
+
+    if (oldPaper) {
+      oldPaper.classList.add("active");
+    }
+
+    // Hide button after click
+    readBtn.style.display = "none";
+
+    // Mark as fallen to prevent re-animation
+    hasFallen = true;
+  });
+}
+
+// Optional: Click on scroll image to trigger the letter
+if (scrollImage) {
+  scrollImage.addEventListener("click", () => {
+    if (!hasFallen) {
+      scrollImage.classList.add("fall");
+
+      setTimeout(() => {
+        scrollImage.style.display = "none";
+        if (oldPaper) oldPaper.classList.add("active");
+        if (readBtn) readBtn.style.display = "none";
+        hasFallen = true;
+      }, 1500);
+
+      setTimeout(() => {
+        if (readBtn) readBtn.classList.add("show");
+      }, 1200);
+    }
+  });
+}
 
 // Initial check for section visibility
 const checkInitialVisibility = () => {
+  if (!theLetterSection) return;
+
   const sectionRect = theLetterSection.getBoundingClientRect();
   if (sectionRect.top < window.innerHeight && sectionRect.bottom > 0) {
     isInSection = true;
@@ -99,6 +133,7 @@ checkInitialVisibility();
     cards.forEach((card) => {
       const btn = card.querySelector(".js-explore-btn");
       if (!btn) return;
+      console.log("sactuary enter")
 
       const redirectUrl = card.dataset.href || "example.html";
 
@@ -172,6 +207,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Function to show card at specific index
   function showCard(index) {
+    if (!cards || cards.length === 0) return;
+    if (index < 0 || index >= cards.length) return;
+
     // Remove active class from all cards
     cards.forEach((card) => {
       card.classList.remove("active");
@@ -258,3 +296,24 @@ document.querySelectorAll(".blogReadMoreBtn").forEach(function(btn) {
     window.location.href = url;
   });
 });
+
+
+// enter sanctuary btn
+const enterSanctuaryBtn = document.getElementById("enterSanctuary");
+if (enterSanctuaryBtn) {
+  enterSanctuaryBtn.addEventListener("click", function () {
+    const mainContent = document.querySelector("main");
+    if (!mainContent) return;
+
+    // Add zoom animation
+    mainContent.classList.add("zoom-out");
+
+    // Wait for animation to finish, then redirect
+    const targetUrl = this.dataset.href || this.getAttribute("href");
+    if (!targetUrl) return;
+
+    setTimeout(() => {
+      window.location.href = targetUrl;
+    }, 1000); // matches CSS animation duration
+  });
+}

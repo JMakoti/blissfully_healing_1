@@ -1,0 +1,320 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&family=Great+Vibes&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Baskervville", serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg-main);
+  color: var(--color-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#preloader {
+  position: fixed;
+  inset: 0;
+  background: #0d0d0d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition:
+    opacity 0.6s ease,
+    visibility 0.6s ease;
+}
+
+.logo-wrapper {
+  text-align: center;
+}
+
+.logo {
+  width: 170px;
+  animation: logoAnime 2s ease-in-out infinite alternate;
+}
+
+@keyframes logoAnime {
+  0% {
+    transform: scale(0.9) translateY(0px);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.05) translateY(-10px);
+    opacity: 1;
+  }
+}
+
+/* .hidden {
+  display: none !important;
+} */
+
+/* -----------------------------------
+   BACKGROUND
+----------------------------------- */
+.letter-bg-image {
+  background: url("../images/letterbase.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* -----------------------------------
+   CONTENT
+----------------------------------- */
+.letter-content {
+  text-align: center;
+  position: relative;
+  z-index: 3;
+  padding: 80px 20px;
+}
+
+.letter-content h1 {
+  font-size: 2.5rem;
+  color: white;
+  text-shadow: 0 0 15px rgba(255, 220, 120, 0.6);
+  font-family: "Baskervville", serif;
+}
+
+/* -----------------------------------
+   SCROLL IMAGE ANIMATION
+----------------------------------- */
+.scroll-image {
+  width: 380px;
+  max-width: 80%;
+  opacity: 0;
+  transform: translateY(-120px) scale(0.9);
+}
+
+.scroll-image.fall {
+  animation: scrollFall 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes scrollFall {
+  0% {
+    opacity: 0;
+    transform: translateY(-150px) scale(0.85) rotate(-8deg);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(10px) scale(1.02) rotate(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0);
+  }
+}
+
+/* -----------------------------------
+   READ BUTTON
+----------------------------------- */
+.read-btn {
+  margin-top: 15px;
+  padding: 12px 30px;
+  font-size: 1rem;
+  background: #d4af37;
+  border: 0;
+  border-radius: 999px;
+  color: #09220e;
+  font-weight: 700;
+  cursor: pointer;
+
+  opacity: 0;
+  transform: scale(0.6);
+  transition: all 0.4s ease;
+}
+
+.read-btn.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.read-btn:hover {
+  background: #fff1c2;
+  box-shadow: 0 0 0 4px rgba(210, 175, 55, 0.25);
+}
+
+/* -----------------------------------
+   OLD PAPER (LETTER)
+----------------------------------- */
+.old-paper {
+  position: relative;
+  margin: 30px auto;
+  width: 100%;
+  max-width: 900px;
+
+  opacity: 0;
+  transform: scale(0.85);
+  pointer-events: none;
+
+  transition: all 0.8s ease;
+}
+
+.old-paper.active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.old-paper img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* -----------------------------------
+   TEXT INSIDE PAPER
+----------------------------------- */
+.paper-text {
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
+
+  text-align: center;
+  color: #2c1d0e;
+  line-height: 1.8;
+
+  opacity: 0;
+  transition: opacity 1s ease 0.3s;
+}
+
+.old-paper.active .paper-text {
+  opacity: 1;
+}
+
+.paper-text p {
+  letter-spacing: 1.4px;
+  font-family: "Great Vibes", cursive;
+  font-size: 1.3rem;
+}
+
+.paper-text p b {
+  font-size: 1.5rem;
+}
+
+/* -----------------------------------
+   TEMPLE LIST
+----------------------------------- */
+.temple-list {
+  list-style: disc;
+  padding-left: 1.2rem;
+  margin: 1rem auto;
+  max-width: 900px;
+  text-align: left;
+}
+
+.temple-item {
+  margin-bottom: 8px;
+}
+
+.temple-item p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* -----------------------------------
+   ENTER BUTTON
+----------------------------------- */
+.enter-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.sanctuary-btn {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background-color: var(--color-deep-emerald);
+  color: var(--color-muted-gold);
+  border: 4px solid var(--color-muted-gold);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  font-size: 16px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+
+  transition: all 0.4s ease;
+  text-decoration: none;
+}
+
+.sanctuary-btn:hover {
+  background-color: var(--color-muted-gold);
+  color: var(--color-deep-emerald);
+  transform: scale(1.08);
+  box-shadow: 0 0 25px rgba(210, 180, 80, 0.5);
+}
+
+/* -----------------------------------
+   RESPONSIVE DESIGN
+----------------------------------- */
+@media (max-width: 992px) {
+  .letter-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .scroll-image {
+    width: 320px;
+  }
+
+  .paper-text {
+    top: 10%;
+  }
+
+  .paper-text p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .letter-content h1 {
+    font-size: 2rem;
+  }
+
+  .scroll-image {
+    width: 280px;
+  }
+
+  .paper-text {
+    width: 90%;
+  }
+
+  .paper-text p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .letter-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .scroll-image {
+    width: 240px;
+  }
+
+  .paper-text {
+    top: 8%;
+    width: 92%;
+  }
+
+  .paper-text p {
+    font-size: 0.95rem;
+  }
+}

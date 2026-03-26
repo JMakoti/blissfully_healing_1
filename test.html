@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portal Door</title>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: #000;
+        overflow: hidden;
+      }
+
+      .universe {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        perspective: 1200px;
+      }
+
+      .stage {
+        position: relative;
+        width: 280px;
+        height: 480px;
+        transform-style: preserve-3d;
+      }
+
+      .panel {
+        position: absolute;
+        top: 0;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(#2a1a08, #120a02);
+        transform-style: preserve-3d;
+      }
+
+      .panel-left {
+        left: 0;
+        transform-origin: left center;
+      }
+
+      .panel-right {
+        right: 0;
+        transform-origin: right center;
+      }
+
+      .beyond {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle, #f0c840, #000);
+        opacity: 0;
+      }
+
+      .door-text {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+        color: gold;
+      }
+
+      .enter-btn {
+        margin-top: 20px;
+        padding: 10px 20px;
+        border: none;
+        background: gold;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="universe">
+      <div class="stage">
+
+        <!-- LIGHT / NEXT WORLD -->
+        <div class="beyond"></div>
+
+        <!-- DOORS -->
+        <div class="panel panel-left"></div>
+        <div class="panel panel-right"></div>
+
+        <!-- TEXT -->
+        <div class="door-text" id="doorText">
+          <h2>Enter the Sacred Hall</h2>
+          <button class="enter-btn" id="enterBtn">Enter</button>
+        </div>
+
+      </div>
+    </div>
+
+    <script>
+      const btn = document.getElementById("enterBtn");
+      const doorText = document.getElementById("doorText");
+      const beyond = document.querySelector(".beyond");
+
+      let opened = false;
+
+      btn.addEventListener("click", () => {
+        if (opened) return;
+        opened = true;
+
+        const tl = gsap.timeline();
+
+        // Fade out text
+        tl.to(doorText, {
+          opacity: 0,
+          duration: 0.5
+        });
+
+        // Open doors
+        tl.to(".panel-left", {
+          rotateY: -85,
+          duration: 1.2,
+          ease: "power3.inOut"
+        }, "-=0.3");
+
+        tl.to(".panel-right", {
+          rotateY: 85,
+          duration: 1.2,
+          ease: "power3.inOut"
+        }, "-=1.2");
+
+        // Reveal light
+        tl.to(beyond, {
+          opacity: 1,
+          duration: 0.8
+        }, "-=0.6");
+
+        // Zoom into portal
+        tl.to(".stage", {
+          scale: 3,
+          duration: 1.5,
+          ease: "power4.in"
+        });
+
+        // Fade to white
+        tl.to("body", {
+          backgroundColor: "#ffffff",
+          duration: 0.6
+        });
+
+        // Redirect
+        tl.call(() => {
+          window.location.href = "entered.html";
+        });
+      });
+    </script>
+  </body>
+</html>

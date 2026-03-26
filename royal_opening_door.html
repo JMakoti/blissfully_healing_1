@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi Doors</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap");
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: #050302;
+        overflow-x: hidden;
+      }
+
+      .universe {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        justify-items: center;
+        padding: 40px;
+      }
+
+      .stage {
+        position: relative;
+        width: 280px;
+        height: 480px;
+        transform-style: preserve-3d;
+        transition: transform 0.3s;
+      }
+
+      .arch-frame {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 20;
+      }
+
+      .panels {
+        position: absolute;
+        inset: 0;
+        transform-style: preserve-3d;
+        z-index: 15;
+      }
+
+      .panel {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 94px;
+        cursor: pointer;
+      }
+
+      .panel-left {
+        left: 46px;
+        transform-origin: left center;
+      }
+
+      .panel-right {
+        left: 140px;
+        transform-origin: right center;
+      }
+
+      .beyond {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle, #f0c840, #000);
+        opacity: 0;
+        z-index: 5;
+      }
+
+      .door-text {
+        position: absolute;
+        left: 46px;
+        right: 46px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 30;
+        text-align: center;
+      }
+
+      .badge {
+        font-family: "Cinzel Decorative", serif;
+        font-size: 8px;
+        letter-spacing: 2px;
+        color: #f0d060;
+        border: 1px solid rgba(240, 208, 96, 0.45);
+        padding: 3px 9px;
+        margin-bottom: 10px;
+      }
+
+      .dtitle {
+        font-family: "Cinzel Decorative", serif;
+        font-size: 14px;
+        font-weight: bold;
+        color: #f8e89a;
+        margin-bottom: 6px;
+      }
+
+      .ddesc {
+        font-family: "Cormorant Garamond", serif;
+        font-style: italic;
+        font-size: 12px;
+        color: rgba(240, 210, 150, 0.8);
+        margin-bottom: 16px;
+      }
+
+      .enter-btn {
+        font-family: "Cinzel Decorative", serif;
+        font-size: 10px;
+        letter-spacing: 2px;
+        background: linear-gradient(135deg, #c8923a, #f0c84a, #b07020);
+        border: none;
+        padding: 9px 22px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="universe">
+
+      <!-- 🔁 REUSABLE DOOR -->
+      <!-- Copy this block 6 times -->
+
+      <div class="stage">
+        <div class="beyond"></div>
+
+        <svg class="arch-frame" viewBox="0 0 280 480">
+          <rect x="0" y="0" width="280" height="480" fill="#120a04"/>
+        </svg>
+
+        <div class="panels">
+          <div class="panel panel-left" style="background:#1b1208;"></div>
+          <div class="panel panel-right" style="background:#2a1a0a;"></div>
+        </div>
+
+        <div class="door-text">
+          <div class="badge">Sanctuary</div>
+          <div class="dtitle">Healing Gate</div>
+          <p class="ddesc">Enter the unknown</p>
+          <button class="enter-btn" data-link="healing.html">Enter</button>
+        </div>
+      </div>
+
+      <!-- Duplicate doors with different links -->
+
+      <div class="stage">
+        <div class="beyond"></div>
+        <div class="panels">
+          <div class="panel panel-left" style="background:#0f1a2a;"></div>
+          <div class="panel panel-right" style="background:#08121b;"></div>
+        </div>
+        <div class="door-text">
+          <div class="badge">Meditation</div>
+          <div class="dtitle">Silent Realm</div>
+          <button class="enter-btn" data-link="meditation.html">Enter</button>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="beyond"></div>
+        <div class="panels">
+          <div class="panel panel-left" style="background:#1a0f2a;"></div>
+          <div class="panel panel-right" style="background:#12081b;"></div>
+        </div>
+        <div class="door-text">
+          <div class="badge">Energy</div>
+          <button class="enter-btn" data-link="energy.html">Enter</button>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="beyond"></div>
+        <div class="panels">
+          <div class="panel panel-left" style="background:#1a2a0f;"></div>
+          <div class="panel panel-right" style="background:#0f1b08;"></div>
+        </div>
+        <div class="door-text">
+          <div class="badge">Balance</div>
+          <button class="enter-btn" data-link="balance.html">Enter</button>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="beyond"></div>
+        <div class="panels">
+          <div class="panel panel-left" style="background:#2a1a0f;"></div>
+          <div class="panel panel-right" style="background:#1b1208;"></div>
+        </div>
+        <div class="door-text">
+          <div class="badge">Wisdom</div>
+          <button class="enter-btn" data-link="wisdom.html">Enter</button>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="beyond"></div>
+        <div class="panels">
+          <div class="panel panel-left" style="background:#0f2a2a;"></div>
+          <div class="panel panel-right" style="background:#081b1b;"></div>
+        </div>
+        <div class="door-text">
+          <div class="badge">Voyage</div>
+          <button class="enter-btn" data-link="voyage.html">Enter</button>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <script>
+      document.querySelectorAll(".enter-btn").forEach((btn) => {
+        btn.addEventListener("click", function (e) {
+          const container = btn.closest(".stage");
+          const panels = container.querySelector(".panels");
+          const beyond = container.querySelector(".beyond");
+          const link = btn.dataset.link;
+
+          const rect = container.getBoundingClientRect();
+
+          // FLOAT ABOVE ALL
+          Object.assign(container.style, {
+            position: "fixed",
+            top: rect.top + "px",
+            left: rect.left + "px",
+            width: rect.width + "px",
+            height: rect.height + "px",
+            zIndex: 9999,
+          });
+
+          const tl = gsap.timeline();
+
+          // CENTER
+          tl.to(container, {
+            top: "50%",
+            left: "50%",
+            xPercent: -50,
+            yPercent: -50,
+            duration: 0.6,
+          });
+
+          // OPEN DOORS
+          tl.to(container.querySelector(".panel-left"), {
+            rotateY: -80,
+            transformOrigin: "left",
+            duration: 1.2,
+          });
+
+          tl.to(
+            container.querySelector(".panel-right"),
+            {
+              rotateY: 80,
+              transformOrigin: "right",
+              duration: 1.2,
+            },
+            "-=1.2"
+          );
+
+          // SHOW LIGHT
+          tl.to(beyond, { opacity: 1, duration: 0.8 }, "-=0.5");
+
+          // ZOOM
+          tl.to(container, {
+            scale: 3.5,
+            duration: 1.4,
+            ease: "power4.in",
+          });
+
+          // FADE
+          tl.to("body", { backgroundColor: "#fff", duration: 0.5 });
+
+          // REDIRECT
+          tl.call(() => {
+            window.location.href = link;
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

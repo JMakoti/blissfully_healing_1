@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&family=Great+Vibes&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap");
 
 * {
   margin: 0;
@@ -11,10 +12,88 @@ html {
   scroll-behavior: smooth;
 }
 
+/* 🔴 FUCHSIA (Threshold) */
+/* .stage.fuchsia {
+  --gold: #ff4da6;
+  --gold-light: #ff99cc;
+  --gold-mid: #cc2f7a;
+  --gold-dark: #801f4d;
+  --stone-left: #1a0a12;
+  --stone-right: #14080e;
+} */
+
+/* ⚫ BLACK (Stillness) */
+/* .stage.black {
+  --gold: #444;
+  --gold-light: #888;
+  --gold-mid: #222;
+  --gold-dark: #000;
+  --stone-left: #050505;
+  --stone-right: #0a0a0a;
+} */
+
+/* ⚪ WHITE (Purification) */
+/* .stage.white {
+  --gold: #ffffff;
+  --gold-light: #f5f5f5;
+  --gold-mid: #dcdcdc;
+  --gold-dark: #bfbfbf;
+  --stone-left: #eeeeee;
+  --stone-right: #dddddd;
+} */
+
+/* 🟡 GOLD (Return) */
+/* .stage.gold {
+  --gold: #f0c840;
+  --gold-light: #fff0a0;
+  --gold-mid: #c8923a;
+  --gold-dark: #7a4e10;
+  --stone-left: #1e1408;
+  --stone-right: #120d06;
+} */
+
+/* 🟢 EMERALD (Voyage) */
+/* .stage.emerald {
+  --gold: #2ecc71;
+  --gold-light: #7dffb3;
+  --gold-mid: #1f9d55;
+  --gold-dark: #0b5d33;
+  --stone-left: #061a12;
+  --stone-right: #04120d;
+} */
+
+/* 🟣 PURPLE (Remembrance) */
+/* .stage.purple {
+  --gold: #a855f7;
+  --gold-light: #d8b4fe;
+  --gold-mid: #7e22ce;
+  --gold-dark: #4c1d95;
+  --stone-left: #140a1f;
+  --stone-right: #0e0816;
+} */
+
+/* 🔵 ROYAL BLUE (Belonging) */
+/* .stage.blue {
+  --gold: #4169e1;
+  --gold-light: #8fa8ff;
+  --gold-mid: #2c4bbd;
+  --gold-dark: #1a2f80;
+  --stone-left: #0a1024;
+  --stone-right: #060a18;
+} */
+
 :root {
+  --color-fuchsia: #ff00ff;
+  --color-black: #000000;
+  --color-white: #ffffff;
   --color-muted-gold: #d2b450;
   --color-deep-emerald: #00381f;
   --color-soft-pink: #e7accf;
+  --color-purple: #a020f0;
+  --color-blue: #4169e1;
+  /* --color-muted-gold: #d2b450;
+  --color-deep-emerald: #00381f;
+  --color-soft-pink: #e7accf; */
   --color-dark: #1a3a2e;
   --color-white: #ffffff;
   --emerald-20: rgba(80, 200, 120, 0.2);
@@ -451,7 +530,7 @@ hero Section */
 }
 
 .scroll-image {
-  width: 380px;
+  width: 300px;
   max-width: 80%;
   opacity: 0;
   transform: translateY(-100px);
@@ -1626,4 +1705,181 @@ hero Section */
 
 .footer-links a:hover {
   color: var(--color-muted-gold);
+}
+
+/* Sanctuaries */
+
+.universe {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  justify-items: center;
+  padding: 40px;
+}
+
+.stage {
+  position: relative;
+  width: 280px;
+  height: 480px;
+  transform-style: preserve-3d;
+}
+
+/* ── ARCH FRAME (static, always visible) ── */
+.arch-frame {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 20;
+}
+
+/* ── DOOR PANELS ── */
+.panels {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  z-index: 15;
+}
+.panel {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 94px;
+  transform-style: preserve-3d;
+  transition: transform 1.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+.panel-left {
+  left: 46px;
+  transform-origin: left center;
+}
+.panel-right {
+  left: 140px;
+  transform-origin: right center;
+}
+
+.panels.open .panel-left {
+  transform: perspective(900px) rotateY(-78deg);
+}
+.panels.open .panel-right {
+  transform: perspective(900px) rotateY(78deg);
+}
+
+/* ── BEYOND ROOM (revealed on open) ── */
+.beyond {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+
+.stage.black {
+  background: radial-gradient(circle, #f0c840, #000);
+}
+
+.stage.emerald {
+  background: radial-gradient(circle, #f0c840, var(--color-deep-emerald));
+}
+
+.stage.gold {
+  background: radial-gradient(
+    circle,
+    var(--color-white),
+    var(--color-muted-gold)
+  );
+}
+
+.stage.purple {
+  background: radial-gradient(
+    circle,
+    var(--color-muted-gold),
+    var(--color-purple)
+  );
+}
+
+.stage.white {
+  background: radial-gradient(circle, var(--color-white), var(--color-white));
+}
+
+.stage.blue {
+  background: radial-gradient(
+    circle,
+    var(--color-muted-gold),
+    var(--color-blue)
+  );
+}
+/* .beyond.show {
+        opacity: 1;
+      } */
+
+/* ── TEXT OVERLAY (always visible, sits above doors) ── */
+.door-text {
+  position: absolute;
+  left: 46px;
+  right: 46px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 30;
+  text-align: center;
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+.door-text.hide {
+  opacity: 0;
+}
+
+.badge {
+  display: inline-block;
+  font-family: "Cinzel Decorative", serif;
+  font-size: 7.5px;
+  letter-spacing: 2.5px;
+  color: #f0d060;
+  border: 1px solid rgba(240, 208, 96, 0.45);
+  padding: 3px 9px;
+  margin-bottom: 10px;
+}
+.dtitle {
+  font-family: "Cinzel Decorative", serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #f8e89a;
+  line-height: 1.5;
+  margin-bottom: 6px;
+  text-shadow:
+    0 0 14px rgba(240, 200, 80, 0.7),
+    0 2px 4px rgba(0, 0, 0, 0.8);
+}
+.rule {
+  width: 55px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c8923a, transparent);
+  margin: 7px auto 10px;
+}
+.ddesc {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: 12.5px;
+  color: rgba(240, 210, 150, 0.8);
+  line-height: 1.65;
+  margin-bottom: 16px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+}
+.sanctuary-enter-btn {
+  font-family: "Cinzel Decorative", serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #1a0f04;
+  background: linear-gradient(135deg, #c8923a 0%, #f0c84a 50%, #b07020 100%);
+  border: none;
+  padding: 9px 22px;
+  cursor: pointer;
+  pointer-events: auto;
+  transition:
+    opacity 0.2s,
+    transform 0.15s;
+}
+.sanctuary-enter-btn:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+.sanctuary-enter-btn:active {
+  transform: scale(0.97);
 }

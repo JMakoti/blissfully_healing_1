@@ -79,7 +79,7 @@ body {
 }
 
 .letter-content h1 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: white;
   text-shadow: 0 0 15px rgba(255, 220, 120, 0.6);
   font-family: "Baskervville", serif;
@@ -88,12 +88,12 @@ body {
 /* -----------------------------------
    SCROLL IMAGE ANIMATION
 ----------------------------------- */
-.scroll-image {
-  width: 380px;
+/* .scroll-image {
+  width: 30px;
   max-width: 80%;
   opacity: 0;
   transform: translateY(-120px) scale(0.9);
-}
+} */
 
 .scroll-image.fall {
   animation: scrollFall 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;

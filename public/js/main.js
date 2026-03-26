@@ -7,7 +7,7 @@ window.addEventListener("load", function () {
   setTimeout(() => {
     preloader.style.opacity = "0";
     preloader.style.visibility = "hidden";
-  }, 2000); 
+  }, 2000);
 });
 
 //image lazy loading
@@ -133,7 +133,7 @@ checkInitialVisibility();
     cards.forEach((card) => {
       const btn = card.querySelector(".js-explore-btn");
       if (!btn) return;
-      console.log("sactuary enter")
+      console.log("sactuary enter");
 
       const redirectUrl = card.dataset.href || "example.html";
 
@@ -282,21 +282,19 @@ document.addEventListener("DOMContentLoaded", function () {
   startAutoAdvance();
 });
 
-
 // button element by its ID
 // document.getElementById("blogReadMoreBtn").onclick = function () {
 //   //redirect to blogs.html
 //   window.location.href = "../../www/blogs.html";
-  
+
 // }
 
-document.querySelectorAll(".blogReadMoreBtn").forEach(function(btn) {
+document.querySelectorAll(".blogReadMoreBtn").forEach(function (btn) {
   btn.addEventListener("click", function () {
     const url = this.getAttribute("data-href");
     window.location.href = url;
   });
 });
-
 
 // enter sanctuary btn
 const enterSanctuaryBtn = document.getElementById("enterSanctuary");
@@ -317,3 +315,71 @@ if (enterSanctuaryBtn) {
     }, 1000); // matches CSS animation duration
   });
 }
+
+// Sancturies
+document.querySelectorAll(".sanctuary-enter-btn").forEach((btn) => {
+  btn.addEventListener("click", function (e) {
+    const container = btn.closest(".stage");
+    const panels = container.querySelector(".panels");
+    const beyond = container.querySelector(".beyond");
+    const link = btn.dataset.link;
+
+    const rect = container.getBoundingClientRect();
+
+    // FLOAT ABOVE ALL
+    Object.assign(container.style, {
+      position: "fixed",
+      top: rect.top + "px",
+      left: rect.left + "px",
+      width: rect.width + "px",
+      height: rect.height + "px",
+      zIndex: 9999,
+    });
+
+    const tl = gsap.timeline();
+
+    // CENTER
+    tl.to(container, {
+      top: "50%",
+      left: "50%",
+      xPercent: -50,
+      yPercent: -50,
+      duration: 0.6,
+    });
+
+    // OPEN DOORS
+    tl.to(container.querySelector(".panel-left"), {
+      rotateY: -80,
+      transformOrigin: "left",
+      duration: 1.2,
+    });
+
+    tl.to(
+      container.querySelector(".panel-right"),
+      {
+        rotateY: 80,
+        transformOrigin: "right",
+        duration: 1.2,
+      },
+      "-=1.2",
+    );
+
+    // SHOW LIGHT
+    tl.to(beyond, { opacity: 1, duration: 0.8 }, "-=0.5");
+
+    // ZOOM
+    tl.to(container, {
+      scale: 3.5,
+      duration: 1.4,
+      ease: "power4.in",
+    });
+
+    // FADE
+    tl.to("body", { backgroundColor: "#fff", duration: 0.5 });
+
+    // REDIRECT
+    tl.call(() => {
+      window.location.href = link;
+    });
+  });
+});

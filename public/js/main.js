@@ -55,23 +55,58 @@ window.addEventListener("scroll", () => {
 
   if (isSectionVisible && !hasFallen) {
     hasFallen = true;
-    // Only trigger fall animation if not already fallen
+
+    // 1. Scroll falls
     scrollImage.classList.add("fall");
 
+    // 2. Show button
     setTimeout(() => {
       readBtn.classList.add("show");
     }, 1200);
-  }
-  // } else if (currentScrollY < lastScrollY) {
-  //   // Scrolling UP
-  //   scrollImage.classList.add("fall");
-  //   // oldPaper.classList.remove("active");
-  //   readBtn.classList.add("show");
-  //   hasFallen = true;
-  // }
 
-  // lastScrollY = currentScrollY;
+    // ✅ 3. AUTO OPEN LETTER AFTER FALL
+    setTimeout(() => {
+      if (scrollImage) {
+        scrollImage.style.display = "none";
+        scrollImage.classList.remove("fall");
+      }
+
+      if (oldPaper) {
+        oldPaper.classList.add("active");
+      }
+
+      if (readBtn) {
+        readBtn.style.display = "none";
+      }
+    }, 1800); // slightly after fall animation
+  }
 });
+// window.addEventListener("scroll", () => {
+//   if (!theLetterSection || !scrollImage || !readBtn) return;
+
+//   const sectionRect = theLetterSection.getBoundingClientRect();
+//   const isSectionVisible =
+//     sectionRect.top < window.innerHeight && sectionRect.bottom > 0;
+
+//   if (isSectionVisible && !hasFallen) {
+//     hasFallen = true;
+//     // Only trigger fall animation if not already fallen
+//     scrollImage.classList.add("fall");
+
+//     setTimeout(() => {
+//       readBtn.classList.add("show");
+//     }, 1200);
+//   }
+//   // } else if (currentScrollY < lastScrollY) {
+//   //   // Scrolling UP
+//   //   scrollImage.classList.add("fall");
+//   //   // oldPaper.classList.remove("active");
+//   //   readBtn.classList.add("show");
+//   //   hasFallen = true;
+//   // }
+
+//   // lastScrollY = currentScrollY;
+// });
 
 // CLICK ACTION
 if (readBtn) {

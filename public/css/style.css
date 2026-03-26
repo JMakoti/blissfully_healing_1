@@ -167,16 +167,172 @@ main {
 }
 
 /* navbar */
-.custom-navbar {
+.s-header {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.s-header.scrolled {
+  position: fixed;
+  background: rgba(11, 12, 12, 0.95);
+  backdrop-filter: blur(8px);
+}
+
+.s-header__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 6%;
+}
+
+/* LOGO */
+.header-logo img {
+  width: 50px;
+}
+
+/* NAV */
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.header-nav__links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.header-nav__links a {
+  text-decoration: none;
+  color: #9ca3af;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.header-nav__links a:hover,
+.current a {
+  color: #ffffff;
+}
+
+/* PHONE BUTTON */
+.header-contact__num {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 10px 20px;
+  border-radius: 30px;
+  color: #e8e6e3;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/*  INTRO  */
+.s-intro {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 6% 40px;
+  position: relative;
+  background: var(--color-black);
+}
+
+/* GRID */
+.s-intro__content {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  width: 100%;
+}
+
+/* LEFT TEXT */
+.intro-header__overline {
+  font-style: italic;
+  color: #c7c7c7;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.intro-header__big-type {
+  font-size: 130px;
+  line-height: 0.9;
+  font-weight: 400;
+  position: relative;
+  z-index: 2;
+  color: var(--color-white);
+  margin-right: -120px;
+}
+
+/* CENTER IMAGE */
+.intro-pic-primary {
+  position: relative;
+  z-index: 1;
+}
+
+.intro-pic-primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(11, 12, 12, 0.85) 0%,
+    rgba(11, 12, 12, 0.5) 40%,
+    rgba(11, 12, 12, 0.2) 70%,
+    rgba(11, 12, 12, 0.1) 100%
+  );
+
+  z-index: 2;
+  pointer-events: none;
+}
+
+.intro-pic-primary img {
+  width: 100%;
+  /* width: 400px; */
+  height: 520px;
+  object-fit: cover;
+}
+
+/* RIGHT SIDE */
+.intro-block-content {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.intro-block-content__pic img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.intro-block-content__text {
+  color: #bfc3c7;
+  line-height: 1.7;
+  font-size: 24px;
+}
+
+/*  RESPONSIVE  */
+@media (max-width: 1024px) {
+  .s-intro__content {
+    grid-template-columns: 1fr;
+  }
+
+  .intro-header__big-type {
+    font-size: 70px;
+  }
+
+  .intro-pic-primary img {
+    height: 350px;
+  }
+}
+/* .custom-navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-
-  /* padding: 18px 0; */
   background: var(--color-muted-gold);
-  /* color: var(--color-white); */
   backdrop-filter: blur(12px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
@@ -204,17 +360,7 @@ main {
   color: var(--color-dark) !important;
   transition: 0.3s ease;
 }
-/* .nav-link.active,.nav-link:hover {
-  color: var(--color-soft-pink);
-} */
-/* .nav-link.active,
-.nav-link:hover {
-  color: var(--color-muted-gold) !important;
-} */
 
-/* .nav-link:hover {
-  color: var(--color-muted-gold) !important;
-} */
 
 .nav-btn {
   padding: 10px 26px;
@@ -226,11 +372,7 @@ main {
   transition: 0.3s ease;
   white-space: nowrap;
 }
-/* .nav-btn:hover {
-  background-color: var(--color-ros);
-  color: var(--color-white);
-  border: 2px var(--color-deep-emerald);
-} */
+
 
 .nav-btn:hover {
   background-color: var(--color-muted-gold);
@@ -266,11 +408,11 @@ main {
   .nav-btn {
     padding: 8px 20px;
   }
-}
+} */
 
 /* 
 hero Section */
-.hero-section {
+/* .hero-section {
   height: 100vh;
   overflow: hidden;
   position: relative;
@@ -332,7 +474,6 @@ hero Section */
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* object-position: center; */
   opacity: 0;
   animation: slide 150s linear infinite;
 }
@@ -503,7 +644,7 @@ hero Section */
 }
 
 @media (max-width: 480px) {
-}
+} */
 
 /* The Letter */
 .letter-bg-image {

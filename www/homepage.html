@@ -79,6 +79,62 @@
 
     <!-- Hero Section -->
     <main>
+      <header class="s-header">
+        <div class="s-header__content">
+          <div class="header-logo">
+            <img src="../public/images/Bh_ logo.png" alt="Blissfully Logo" />
+          </div>
+
+          <nav class="header-nav">
+            <ul class="header-nav__links">
+              <li class="current"><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Sanctuaries</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+
+            <a href="" class="header-contact__num"> Join Now </a>
+          </nav>
+        </div>
+      </header>
+
+      <!-- INTRO -->
+      <section class="s-intro">
+        <div class="s-intro__content">
+          <!-- LEFT -->
+          <div>
+            <div class="intro-header__overline">Welcome to</div>
+            <h1 class="intro-header__big-type">
+              Blissfully <br />
+              Healing
+            </h1>
+          </div>
+
+          <!-- CENTER IMAGE -->
+          <div class="intro-pic-primary">
+            <img
+              src="https://images.pexels.com/photos/5240733/pexels-photo-5240733.jpeg"
+              alt="Coffee beans"
+            />
+          </div>
+
+          <!-- RIGHT -->
+          <div class="intro-block-content">
+            <div class="intro-block-content__pic">
+              <img
+                src="https://images.pexels.com/photos/4577191/pexels-photo-4577191.jpeg"
+                alt="Coffee cup"
+              />
+            </div>
+
+            <p class="intro-block-content__text">
+              An ancient practice for modern souls seeking transcendence through
+              celestial energy alignment
+            </p>
+          </div>
+        </div>
+      </section>
+
       <!-- <section class="hero-section container-fluid">
         <div class="hero-content">
           <div class="col-lg-6 ps-lg-5 hero-left">
@@ -3469,5 +3525,19 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="../public/js/main.js"></script>
+    <script>
+      const header = document.querySelector(".s-header");
+      const intro = document.querySelector(".s-intro");
+
+      window.addEventListener("scroll", () => {
+        const triggerPoint = intro.offsetHeight - 100;
+
+        if (window.scrollY > triggerPoint) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
+    </script>
   </body>
 </html>

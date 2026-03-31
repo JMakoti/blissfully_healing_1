@@ -1,13 +1,21 @@
 //preloader
-window.addEventListener("load", function () {
-  const preloader = document.getElementById("preloader");
+// window.addEventListener("load", function () {
+//   const preloader = document.getElementById("preloader");
 
-  if (!preloader) return;
+//   if (!preloader) return;
 
+//   setTimeout(() => {
+//     preloader.style.opacity = "0";
+//     preloader.style.visibility = "hidden";
+//   }, 2000);
+// });
+
+window.addEventListener("load", () => {
   setTimeout(() => {
+    const preloader = document.getElementById("preloader");
     preloader.style.opacity = "0";
     preloader.style.visibility = "hidden";
-  }, 2000);
+  }, 6000); // matches animation timing
 });
 
 //image lazy loading
@@ -46,6 +54,8 @@ if (enterSanctuary) {
 }
 
 // Check scroll direction
+let scrollCount = 0;
+
 window.addEventListener("scroll", () => {
   if (!theLetterSection || !scrollImage || !readBtn) return;
 
@@ -53,7 +63,9 @@ window.addEventListener("scroll", () => {
   const isSectionVisible =
     sectionRect.top < window.innerHeight && sectionRect.bottom > 0;
 
-  if (isSectionVisible && !hasFallen) {
+  if (isSectionVisible && !hasFallen)  {
+    scrollCount++;
+
     hasFallen = true;
 
     // 1. Scroll falls
@@ -65,20 +77,22 @@ window.addEventListener("scroll", () => {
     }, 1200);
 
     // ✅ 3. AUTO OPEN LETTER AFTER FALL
-    setTimeout(() => {
-      if (scrollImage) {
-        scrollImage.style.display = "none";
-        scrollImage.classList.remove("fall");
-      }
+    if (scrollCount >= 1) {
+      setTimeout(() => {
+        if (scrollImage) {
+          scrollImage.style.display = "none";
+          scrollImage.classList.remove("fall");
+        }
 
-      if (oldPaper) {
-        oldPaper.classList.add("active");
-      }
+        if (oldPaper) {
+          oldPaper.classList.add("active");
+        }
 
-      if (readBtn) {
-        readBtn.style.display = "none";
-      }
-    }, 1800); // slightly after fall animation
+        if (readBtn) {
+          readBtn.style.display = "none";
+        }
+      }, 3000); // slightly after fall animation
+    }
   }
 });
 // window.addEventListener("scroll", () => {
@@ -352,67 +366,153 @@ if (enterSanctuaryBtn) {
 }
 
 // Sancturies
+// document.querySelectorAll(".sanctuary-enter-btn").forEach((btn) => {
+//   btn.addEventListener("click", function (e) {
+//     const container = btn.closest(".stage");
+//     const panels = container.querySelector(".panels");
+//     const beyond = container.querySelector(".beyond");
+//     const link = btn.dataset.link;
+
+//     const rect = container.getBoundingClientRect();
+
+//     // FLOAT ABOVE ALL
+//     Object.assign(container.style, {
+//       position: "fixed",
+//       top: rect.top + "px",
+//       left: rect.left + "px",
+//       width: rect.width + "px",
+//       height: rect.height + "px",
+//       zIndex: 9999,
+//     });
+
+//     const tl = gsap.timeline();
+
+//     // CENTER
+//     tl.to(container, {
+//       top: "50%",
+//       left: "50%",
+//       xPercent: -50,
+//       yPercent: -50,
+//       duration: 0.6,
+//     });
+
+//     // OPEN DOORS
+//     tl.to(container.querySelector(".panel-left"), {
+//       rotateY: -80,
+//       transformOrigin: "left",
+//       duration: 1.2,
+//     });
+
+//     tl.to(
+//       container.querySelector(".panel-right"),
+//       {
+//         rotateY: 80,
+//         transformOrigin: "right",
+//         duration: 1.2,
+//       },
+//       "-=1.2",
+//     );
+
+//     // SHOW LIGHT
+//     tl.to(beyond, { opacity: 1, duration: 0.8 }, "-=0.5");
+
+//     // ZOOM
+//     tl.to(container, {
+//       scale: 3.5,
+//       duration: 1.4,
+//       ease: "power4.in",
+//     });
+
+//     // FADE
+//     tl.to("body", { backgroundColor: "#fff", duration: 0.5 });
+
+//     // REDIRECT
+//     tl.call(() => {
+//       window.location.href = link;
+//     });
+//   });
+// });
 document.querySelectorAll(".sanctuary-enter-btn").forEach((btn) => {
   btn.addEventListener("click", function (e) {
     const container = btn.closest(".stage");
-    const panels = container.querySelector(".panels");
     const beyond = container.querySelector(".beyond");
+    const doorTxt = container.querySelector(".door-text");
     const link = btn.dataset.link;
 
-    const rect = container.getBoundingClientRect();
+    let opened = false;
+    if (opened) return;
+    opened = true;
 
-    // FLOAT ABOVE ALL
-    Object.assign(container.style, {
-      position: "fixed",
-      top: rect.top + "px",
-      left: rect.left + "px",
-      width: rect.width + "px",
-      height: rect.height + "px",
-      zIndex: 9999,
-    });
+    // 🔥 Bring this door above ALL others (no movement)
+    container.style.zIndex = 9999;
+    container.style.position = "relative";
 
     const tl = gsap.timeline();
 
-    // CENTER
-    tl.to(container, {
-      top: "50%",
-      left: "50%",
-      xPercent: -50,
-      yPercent: -50,
-      duration: 0.6,
+    // Fade text
+    tl.to(doorTxt, {
+      opacity: 0,
+      duration: 0.4,
     });
 
-    // OPEN DOORS
-    tl.to(container.querySelector(".panel-left"), {
-      rotateY: -80,
-      transformOrigin: "left",
-      duration: 1.2,
-    });
+    // Open LEFT
+    tl.to(
+      container.querySelector(".panel-left"),
+      {
+        rotateY: -80,
+        transformPerspective: 900,
+        transformOrigin: "left center",
+        duration: 1.3,
+        ease: "power3.inOut",
+      },
+      "-=0.2",
+    );
 
+    // Open RIGHT
     tl.to(
       container.querySelector(".panel-right"),
       {
         rotateY: 80,
-        transformOrigin: "right",
-        duration: 1.2,
+        transformPerspective: 900,
+        transformOrigin: "right center",
+        duration: 1.3,
+        ease: "power3.inOut",
       },
-      "-=1.2",
+      "-=1.3",
     );
 
-    // SHOW LIGHT
-    tl.to(beyond, { opacity: 1, duration: 0.8 }, "-=0.5");
+    // Reveal inside glow
+    tl.to(
+      beyond,
+      {
+        opacity: 1,
+        duration: 0.8,
+      },
+      "-=0.6",
+    );
 
-    // ZOOM
+    // Glow pulse
+    tl.to(beyond, {
+      filter: "brightness(1.4)",
+      duration: 0.3,
+      yoyo: true,
+      repeat: 1,
+    });
+
+    // 🔥 Zoom from SAME position (no centering)
     tl.to(container, {
-      scale: 3.5,
-      duration: 1.4,
+      scale: 3,
+      duration: 1.5,
       ease: "power4.in",
     });
 
-    // FADE
-    tl.to("body", { backgroundColor: "#fff", duration: 0.5 });
+    // Fade screen
+    tl.to("body", {
+      backgroundColor: "#ffffff",
+      duration: 0.6,
+    });
 
-    // REDIRECT
+    // Redirect
     tl.call(() => {
       window.location.href = link;
     });

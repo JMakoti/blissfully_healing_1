@@ -128,7 +128,67 @@ body {
 #preloader {
   position: fixed;
   inset: 0;
-  /* background: var(--color-muted-gold); */
+  background: #0d0d0d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  overflow: hidden;
+  transition: transform 1s ease, opacity 0.8s ease;
+}
+
+.logo-wrapper {
+  text-align: center;
+  animation: moveUp 1s ease forwards;
+  animation-delay: 5s; /* triggers after logo + text */
+}
+
+.logo {
+  width: 170px;
+  animation: logoAnim 2s ease-in-out infinite alternate;
+}
+
+/* TEXT */
+.brand-name {
+  margin-top: 12px;
+  color: #d4af37;
+  font-size: 30px;
+  letter-spacing: 2px;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: showText 0.8s ease forwards;
+  animation-delay: 2s; /* appears after logo settles */
+}
+
+/* Logo floating */
+@keyframes logoAnim {
+  0% {
+    transform: scale(0.9) translateY(0px);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.05) translateY(-10px);
+    opacity: 1;
+  }
+}
+
+/* Text reveal */
+@keyframes showText {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Move whole block upward */
+@keyframes moveUp {
+  to {
+    transform: translateY(-150vh);
+  }
+}
+/* #preloader {
+  position: fixed;
+  inset: 0;
   background: #0d0d0d;
   display: flex;
   justify-content: center;
@@ -137,9 +197,9 @@ body {
   transition:
     opacity 0.6s ease,
     visibility 0.6s ease;
-}
+} */
 
-.logo-wrapper {
+/* .logo-wrapper {
   text-align: center;
 }
 
@@ -152,10 +212,10 @@ main {
   transition:
     transform 1s ease,
     opacity 1s ease;
-}
+} */
 
 /* Floating + Fade Animation */
-@keyframes logoAnim {
+/* @keyframes logoAnim {
   0% {
     transform: scale(0.9) translateY(0px);
     opacity: 0.7;
@@ -164,7 +224,7 @@ main {
     transform: scale(1.05) translateY(-10px);
     opacity: 1;
   }
-}
+} */
 
 /* navbar */
 .s-header {

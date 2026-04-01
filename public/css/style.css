@@ -134,7 +134,9 @@ body {
   align-items: center;
   z-index: 9999;
   overflow: hidden;
-  transition: transform 1s ease, opacity 0.8s ease;
+  transition:
+    transform 1s ease,
+    opacity 0.8s ease;
 }
 
 .logo-wrapper {

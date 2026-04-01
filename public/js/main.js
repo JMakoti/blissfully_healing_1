@@ -54,7 +54,6 @@ if (enterSanctuary) {
 }
 
 // Check scroll direction
-let scrollCount = 0;
 
 window.addEventListener("scroll", () => {
   if (!theLetterSection || !scrollImage || !readBtn) return;
@@ -63,81 +62,100 @@ window.addEventListener("scroll", () => {
   const isSectionVisible =
     sectionRect.top < window.innerHeight && sectionRect.bottom > 0;
 
-  if (isSectionVisible && !hasFallen)  {
-    scrollCount++;
-
+  if (isSectionVisible && !hasFallen) {
     hasFallen = true;
 
-    // 1. Scroll falls
+    // Scroll falls
     scrollImage.classList.add("fall");
 
-    // 2. Show button
+    // Show button
     setTimeout(() => {
       readBtn.classList.add("show");
     }, 1200);
-
-    // ✅ 3. AUTO OPEN LETTER AFTER FALL
-    if (scrollCount >= 1) {
-      setTimeout(() => {
-        if (scrollImage) {
-          scrollImage.style.display = "none";
-          scrollImage.classList.remove("fall");
-        }
-
-        if (oldPaper) {
-          oldPaper.classList.add("active");
-        }
-
-        if (readBtn) {
-          readBtn.style.display = "none";
-        }
-      }, 3000); // slightly after fall animation
-    }
   }
 });
+// let scrollCount = 0;
+
+// let hasOpenedPaper = false;
+
 // window.addEventListener("scroll", () => {
-//   if (!theLetterSection || !scrollImage || !readBtn) return;
+//   if (!theLetterSection || !scrollImage || !readBtn || !oldPaper) return;
 
 //   const sectionRect = theLetterSection.getBoundingClientRect();
+
+//   // ✅ 1. Trigger scroll fall when section appears
 //   const isSectionVisible =
 //     sectionRect.top < window.innerHeight && sectionRect.bottom > 0;
 
 //   if (isSectionVisible && !hasFallen) {
 //     hasFallen = true;
-//     // Only trigger fall animation if not already fallen
+
 //     scrollImage.classList.add("fall");
 
 //     setTimeout(() => {
 //       readBtn.classList.add("show");
 //     }, 1200);
 //   }
-//   // } else if (currentScrollY < lastScrollY) {
-//   //   // Scrolling UP
-//   //   scrollImage.classList.add("fall");
-//   //   // oldPaper.classList.remove("active");
-//   //   readBtn.classList.add("show");
-//   //   hasFallen = true;
-//   // }
 
-//   // lastScrollY = currentScrollY;
+//   // ✅ 2. Trigger paper open at HALF screen
+//   const halfwayPoint = window.innerHeight * 0.5;
+//   const hasReachedHalfScreen = sectionRect.top < halfwayPoint;
+
+//   if (hasReachedHalfScreen && !hasOpenedPaper) {
+//     hasOpenedPaper = true;
+
+//     setTimeout(() => {
+//       // Hide scroll
+//       scrollImage.style.display = "none";
+//       scrollImage.classList.remove("fall");
+
+//       // Show paper
+//       oldPaper.classList.add("active");
+
+//       // Hide button
+//       readBtn.style.display = "none";
+//     }, 500); // slight delay feels smoother
+//   }
 // });
 
+
 // CLICK ACTION
+// if (readBtn) {
+//   readBtn.addEventListener("click", () => {
+//     if (scrollImage) {
+//       scrollImage.style.display = "none";
+//       scrollImage.classList.remove("fall");
+//     }
+
+//     if (oldPaper) {
+//       oldPaper.classList.add("active");
+//     }
+
+//     // Hide button after click
+//     readBtn.style.display = "none";
+
+//     // Mark as fallen to prevent re-animation
+//     hasFallen = true;
+//   });
+// }
+
 if (readBtn) {
   readBtn.addEventListener("click", () => {
-    if (scrollImage) {
+    // Fade out scroll (nice UX)
+    scrollImage.style.transition = "opacity 0.5s ease";
+    scrollImage.style.opacity = "0";
+
+    setTimeout(() => {
       scrollImage.style.display = "none";
       scrollImage.classList.remove("fall");
-    }
 
-    if (oldPaper) {
+      // Show paper
       oldPaper.classList.add("active");
-    }
+    }, 500);
 
-    // Hide button after click
+    // Hide button
     readBtn.style.display = "none";
 
-    // Mark as fallen to prevent re-animation
     hasFallen = true;
   });
 }

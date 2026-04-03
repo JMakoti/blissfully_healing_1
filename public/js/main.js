@@ -15,7 +15,7 @@ window.addEventListener("load", () => {
     const preloader = document.getElementById("preloader");
     preloader.style.opacity = "0";
     preloader.style.visibility = "hidden";
-  }, 6000); // matches animation timing
+  }, 4000); // matches animation timing
 });
 
 //image lazy loading

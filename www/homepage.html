@@ -23,6 +23,59 @@
     <!-- <link rel="stylesheet" href="public/css/custom.css"> -->
   </head>
   <body>
+    <nav class="navbar navbar-expand-lg custom-navbar">
+      <div class="container">
+        <!-- <a class="navbar-brand" href="#"> Blissfully Healing </a> -->
+        <a class="navbar-brand"
+          ><img
+            src="../public/images/Bh_ logo.png"
+            alt="Blissfully Healing"
+            loading="lazy"
+            decoding="async"
+          />
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent"
+          aria-label="Mobile Menu Toggle"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div
+          class="collapse navbar-collapse justify-content-between"
+          id="navbarContent"
+        >
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-4">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Retreats</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Support</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+
+          <button
+            class="nav-btn ms-lg-3"
+            aria-label="Get Started With Blissfull healing"
+          >
+            Get Started
+          </button>
+        </div>
+      </div>
+    </nav>
     <!-- <nav class="navbar navbar-expand-lg custom-navbar">
       <div class="container">
         <a class="navbar-brand" href="#"
@@ -79,7 +132,7 @@
 
     <!-- Hero Section -->
     <main>
-      <header class="s-header">
+      <!-- <header class="s-header">
         <div class="s-header__content">
           <div class="header-logo">
             <img src="../public/images/Bh_ logo.png" alt="Blissfully Logo" />
@@ -96,12 +149,59 @@
             <a href="" class="header-contact__num"> Join Now </a>
           </nav>
         </div>
-      </header>
+      </header> -->
 
       <!-- INTRO -->
-      <section class="s-intro">
+      <section class="hero-section container-fluid">
+        <div class="hero-content">
+          <div class="col-lg-6 ps-lg-5 hero-left">
+            <div class="pellet p1"></div>
+            <div class="pellet p2"></div>
+            <div class="pellet p3"></div>
+            <div class="pellet p4"></div>
+
+            <div>
+              <h1 class="hero-title display-1 fw-normal">
+                AWAKENING<br />
+                THE SACRED <br />
+                WITHIN
+              </h1>
+
+              <p class="hero-sub mt-4">
+                An ancient practice for modern souls seeking transcendence
+                through celestial energy alignment
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6 hero-right p-0">
+            <div class="carousel-vertical">
+              <img
+                src="https://images.pexels.com/photos/6707489/pexels-photo-6707489.jpeg"
+                alt="Blissfully healing"
+              />
+              <img
+                src="https://images.pexels.com/photos/5240733/pexels-photo-5240733.jpeg"
+                alt="Blissfully healing"
+              />
+              <img
+                src="https://images.pexels.com/photos/4577191/pexels-photo-4577191.jpeg"
+                alt="Blissfully healing"
+              />
+              <img
+                src="https://static.vecteezy.com/system/resources/thumbnails/013/354/328/small_2x/mind-body-soul-and-spirit-words-engraved-on-zen-stones-with-rose-flower-copy-space-and-zen-concept-photo.jpg"
+                alt="Blissfully healing"
+              />
+              <img
+                src="https://images.pexels.com/photos/3865799/pexels-photo-3865799.jpeg"
+                alt="Blissfully healing"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- <section class="s-intro">
         <div class="s-intro__content">
-          <!-- LEFT -->
           <div>
             <div class="intro-header__overline">Welcome to</div>
             <h1 class="intro-header__big-type">
@@ -109,8 +209,6 @@
               Healing
             </h1>
           </div>
-
-          <!-- CENTER IMAGE -->
           <div class="intro-pic-primary">
             <img
               src="https://images.pexels.com/photos/5240733/pexels-photo-5240733.jpeg"
@@ -118,7 +216,6 @@
             />
           </div>
 
-          <!-- RIGHT -->
           <div class="intro-block-content">
             <div class="intro-block-content__pic">
               <img
@@ -133,7 +230,7 @@
             </p>
           </div>
         </div>
-      </section>
+      </section> -->
 
       <!-- <section class="hero-section container-fluid">
         <div class="hero-content">
@@ -201,7 +298,6 @@
 
             <div class="door">
               <img
-                style="height: 400px"
                 src="../public/images/closedgate.jpg"
                 alt="Blissfuly Gateway"
               />
@@ -209,13 +305,11 @@
 
             <!-- TEXT always visible over doors -->
             <div class="door-text" id="doorText">
-              <div class="badge">Royal Sanctuary</div>
-              <div class="dtitle">The Sanctuary<br />of Belonging</div>
-              <div class="rule"></div>
+              <div class="badge"><h3>Royal Sanctuary</h3></div>
+              <div class="dtitle"><h1>The Sanctuary of Belonging</h1></div>
               <p class="ddesc">
-                Cosmic Depth: <br />
-                Connection through the vastness <br />
-                of the shared soul.
+                Cosmic Depth: Connection through the vastness of the shared
+                soul.
               </p>
               <button class="sanctuary-enter-btn" data-link="belonging.html">
                 &nbsp; Enter &nbsp;
@@ -226,51 +320,47 @@
           <!-- Sanctuary 2 -->
           <div class="stage">
             <!-- BEYOND room revealed when door opens -->
-            <div class="beyond"></div>
+            <!-- <div class="beyond"></div> -->
 
-            <div class="door">
-              <img
-                style="height: 400px"
-                src="../public/images/closedgate.jpg"
-                alt="Blissfuly Gateway"
-              />
-            </div>
             <!-- TEXT always visible over doors -->
             <div class="door-text" id="doorText">
-              <div class="badge">Royal Sanctuary</div>
-              <div class="dtitle">The Sanctuary<br />of Purification</div>
+              <div class="badge"><h3>Royal Sanctuary</h3></div>
+              <div class="dtitle"><h1>The Sanctuary of Purification</h1></div>
               <div class="rule"></div>
               <p class="ddesc">
-                Purity:<br />
-                Fluid release and the ritual <br />
-                of water.
+                Purity: Fluid release and the ritual of water.
               </p>
               <button class="sanctuary-enter-btn" data-link="purification.html">
                 &nbsp; Enter &nbsp;
               </button>
+            </div>
+
+            <div class="door">
+              <img
+                src="../public/images/closedgate.jpg"
+                alt="Blissfuly Gateway"
+              />
             </div>
           </div>
 
           <!-- Sanctuary 3 -->
           <div class="stage">
             <!-- BEYOND room revealed when door opens -->
-            <div class="beyond"></div>
+            <!-- <div class="beyond"></div> -->
 
             <div class="door">
               <img
-                style="height: 400px"
                 src="../public/images/closedgate.jpg"
                 alt="Blissfuly Gateway"
               />
             </div>
             <!-- TEXT always visible over doors -->
             <div class="door-text" id="doorText">
-              <div class="badge">Royal Sanctuary</div>
-              <div class="dtitle">The Sanctuary<br />of Remembrance</div>
-              <div class="rule"></div>
+              <div class="badge"><h3>Royal Sanctuary</h3></div>
+              <div class="dtitle"><h1>The Sanctuary of Remembrance</h1></div>
+              <!-- <div class="rule"></div> -->
               <p class="ddesc">
-                Sovereign Lineage: <br />
-                Ancestry and spiritual memory.
+                Sovereign Lineage: Ancestry and spiritual memory.
               </p>
               <button class="sanctuary-enter-btn" data-link="remembrance.html">
                 &nbsp; Enter &nbsp;
@@ -281,50 +371,46 @@
           <!-- Sanctuary 4 -->
           <div class="stage">
             <!-- BEYOND room revealed when door opens -->
-            <div class="beyond"></div>
+            <!-- <div class="beyond"></div> -->
 
-            <div class="door">
-              <img
-                style="height: 400px"
-                src="../public/images/closedgate.jpg"
-                alt="Blissfuly Gateway"
-              />
-            </div>
             <!-- TEXT always visible over doors -->
             <div class="door-text" id="doorText">
-              <div class="badge">Royal Sanctuary</div>
-              <div class="dtitle">The Sanctuary<br />of Return</div>
-              <div class="rule"></div>
+              <div class="badge"><h3>Royal Sanctuary</h3></div>
+              <div class="dtitle"><h1>The Sanctuary of Return</h1></div>
+              <!-- <div class="rule"></div> -->
               <p class="ddesc">
-                Alchemical Love: <br />
-                Radiance and golden intimacy.
+                Alchemical Love: Radiance and golden intimacy.
               </p>
               <button class="sanctuary-enter-btn" data-link="return.html">
                 &nbsp; Enter &nbsp;
               </button>
+            </div>
+
+            <div class="door">
+              <img
+                src="../public/images/closedgate.jpg"
+                alt="Blissfuly Gateway"
+              />
             </div>
           </div>
 
           <!-- Sanctuary 5 -->
           <div class="stage">
             <!-- BEYOND room revealed when door opens -->
-            <div class="beyond"></div>
+            <!-- <div class="beyond"></div> -->
 
             <div class="door">
               <img
-                style="height: 400px"
                 src="../public/images/closedgate.jpg"
                 alt="Blissfuly Gateway"
               />
             </div>
             <!-- TEXT always visible over doors -->
             <div class="door-text" id="doorText">
-              <div class="badge">Royal Sanctuary</div>
-              <div class="dtitle">The Sanctuary<br />of Stillness</div>
-              <div class="rule"></div>
+              <div class="badge"><h3>Royal Sanctuary</h3></div>
+              <div class="dtitle"><h1>The Sanctuary of Stillness</h1></div>
               <p class="ddesc">
-                The Primordial Void:<br />
-                Depth and the inner shadow.
+                The Primordial Void: Depth and the inner shadow.
               </p>
               <button class="sanctuary-enter-btn" data-link="stillnessq.html">
                 &nbsp; Enter &nbsp;
@@ -335,27 +421,26 @@
           <!-- Sanctuary 6 -->
           <div class="stage">
             <!-- BEYOND room revealed when door opens -->
-            <div class="beyond"></div>
+            <!-- <div class="beyond"></div> -->
 
-            <div class="door">
-              <img
-                style="height: 400px"
-                src="../public/images/closedgate.jpg"
-                alt="Blissfuly Gateway"
-              />
-            </div>
             <!-- TEXT always visible over doors -->
             <div class="door-text" id="doorText">
-              <div class="badge">Royal Sanctuary</div>
-              <div class="dtitle">The Sanctuary<br />of Voyage</div>
-              <div class="rule"></div>
+              <div class="badge"><h3>Royal Sanctuary</h3></div>
+              <div class="dtitle"><h1>The Sanctuary of Voyage</h1></div>
+              <!-- <div class="rule"></div> -->
               <p class="ddesc">
-                Vital Growth: <br />
-                Lush horizons and new frontiers.
+                Vital Growth: Lush horizons and new frontiers.
               </p>
               <button class="sanctuary-enter-btn" data-link="voyage.html">
                 &nbsp; Enter &nbsp;
               </button>
+            </div>
+
+            <div class="door">
+              <img
+                src="../public/images/closedgate.jpg"
+                alt="Blissfuly Gateway"
+              />
             </div>
           </div>
         </div>
@@ -677,7 +762,10 @@
                   alt="Blissfully Healing"
                 />
               </div>
-              <h2>Blissfully<br/> Healing</h2>
+              <h2>
+                Blissfully<br />
+                Healing
+              </h2>
             </div>
 
             <p class="brand-text">

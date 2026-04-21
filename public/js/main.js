@@ -468,36 +468,10 @@ document.querySelectorAll(".sanctuary-enter-btn").forEach((btn) => {
     const tl = gsap.timeline();
 
     // Fade text
-    tl.to(doorTxt, {
-      opacity: 0,
-      duration: 0.4,
-    });
-
-    // Open LEFT
-    tl.to(
-      container.querySelector(".panel-left"),
-      {
-        rotateY: -80,
-        transformPerspective: 900,
-        transformOrigin: "left center",
-        duration: 1.3,
-        ease: "power3.inOut",
-      },
-      "-=0.2",
-    );
-
-    // Open RIGHT
-    tl.to(
-      container.querySelector(".panel-right"),
-      {
-        rotateY: 80,
-        transformPerspective: 900,
-        transformOrigin: "right center",
-        duration: 1.3,
-        ease: "power3.inOut",
-      },
-      "-=1.3",
-    );
+    // tl.to(doorTxt, {
+    //   opacity: 0,
+    //   duration: 0.4,
+    // });
 
     // Reveal inside glow
     tl.to(
